@@ -1,4 +1,11 @@
 import React, { createContext, useState } from 'react'
+import $$TEA from '@/external/rangers'
+console.log($$TEA)
+// $$TEA.init({
+//   app_id: 179712,
+//   auto_report: true,
+// })
+// $$TEA.send()
 
 interface AppContext {
   bindStatus: boolean,
