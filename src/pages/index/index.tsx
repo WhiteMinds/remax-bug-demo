@@ -1,13 +1,21 @@
-import React, { useContext } from 'react'
-import { View } from 'remax/wechat'
-import { AppContext } from '@/app'
+import React, { useCallback } from 'react'
+import { Button, View, chooseImage, navigateTo } from 'remax/wechat'
 
 export default () => {
-  const { bindStatus } = useContext(AppContext)
+  const handler = useCallback(async () => {
+    let res = await chooseImage({
+      sourceType: ['album'],
+    })
+    let filePathList = res.tempFiles.map(o => o.path)
+
+    navigateTo({
+      url: `/pages/collect-upload-local/index?data=${encodeURIComponent(JSON.stringify(filePathList))}`,
+    })
+  }, [])
 
   return (
     <View>
-      {bindStatus ? 'bind' : 'unbind'}
+      <Button onClick={handler}>Choose Image</Button>
     </View>
   )
 }

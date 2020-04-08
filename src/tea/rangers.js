@@ -1689,5 +1689,5 @@ TeaSdk.use(default_1$7, { type: 'plugin' }),
 	TeaSdk.use(logger, { name: 'logger', type: 'adapter' }),
 	TeaSdk.use(default_1$9, { type: 'plugin' })
 var index = new TeaSdk()
-module.exports = index
+// module.exports = index
 export default index
